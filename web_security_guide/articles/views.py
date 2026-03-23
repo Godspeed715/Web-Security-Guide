@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import OwaspTop10
 
 # Create your views here.
+
+def owasp_list(request):
+    """Redirect to first article"""
+    return redirect('owasp', page_no=1)
 
 def owasp(request, page_no):
     page_count = OwaspTop10.objects.all().count()

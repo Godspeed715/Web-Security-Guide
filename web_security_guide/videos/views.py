@@ -1,7 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Video
 
 # Create your views here.
+
+def videos_list(request):
+    """Redirect to first video"""
+    return redirect('videos', page_no=1)
+
 def videos(request, page_no):
     page_count = Video.objects.all().count()
     prev_id = page_no - 1 if page_no > 0 else None
