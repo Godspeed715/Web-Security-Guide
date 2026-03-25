@@ -297,8 +297,44 @@ footer {
         gap: 12px;
     }
 
+    .nav-links form button {
+        background: transparent;
+        border: none;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 0.95rem;
+    }
+
+    .nav-links form button:hover {
+        color: #a855f7;
+    }
+
     .container {
         padding: 15px;
     }
 
+}
+
+/* =========================
+   FORM INPUTS
+========================= */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0f0f0f;
+    color: #fff;
+    outline: none;
+}
+
+.input-field:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+}
+
+label {
+    font-size: 0.9rem;
+    color: #ccc;
 }
