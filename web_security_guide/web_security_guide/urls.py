@@ -22,4 +22,5 @@ urlpatterns = [
     path('owasp/', include('articles.urls')),
     path('', include('home.urls')),
     path('videos/', include('videos.urls')),
+    path('', include('django.contrib.auth.urls')) #Url for the login and logout views
 ]
