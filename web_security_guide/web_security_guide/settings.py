@@ -124,3 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # This enables compression and caching for better performance
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
