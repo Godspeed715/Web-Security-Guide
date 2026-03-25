@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Web Security Guide</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">Web Security Guide</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/owasp/1">OWASP</a></li>
+            <li><a href="/videos/1">Videos</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- SIGNUP CONTAINER -->
+<div class="container" style="max-width: 400px;">
+
+    <h1 class="title">Create Account</h1>
+
+    <form method="POST" class="card">
+        {% csrf_token %}
+
+        <!-- Username -->
+        <label>Username</label>
+        <input type="text" name="username" required class="input-field">
+
+        <!-- Password -->
+        <label>Password</label>
+        <input type="password" name="password1" required class="input-field">
+
+        <!-- Confirm Password -->
+        <label>Confirm Password</label>
+        <input type="password" name="password2" required class="input-field">
+
+        <!-- Errors -->
+        {% if form.errors %}
+            <div style="color: #ff4d4d; margin-bottom: 10px; font-size: 0.9rem;">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Submit -->
+        <button type="submit" class="btn primary" style="width:100%;">
+            Sign Up
+        </button>
+    </form>
+
+    <!-- Login Link -->
+    <p style="margin-top: 15px; text-align:center;">
+        Already have an account?
+        <a href="{% url 'login' %}" style="color:#a855f7;">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

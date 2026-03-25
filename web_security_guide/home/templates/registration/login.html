@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Web Security Guide</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">Web Security Guide</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/owasp/1">OWASP</a></li>
+            <li><a href="/videos/1">Videos</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- LOGIN CONTAINER -->
+<div class="container" style="max-width: 400px;">
+
+    <h1 class="title">Login</h1>
+
+    <form method="POST" class="card">
+        {% csrf_token %}
+
+        <!-- Username -->
+        <label>Username</label>
+        <input type="text" name="username" required class="input-field">
+
+        <!-- Password -->
+        <label>Password</label>
+        <input type="password" name="password" required class="input-field">
+
+        <!-- Errors -->
+        {% if form.errors %}
+            <p style="color: #ff4d4d; margin-bottom: 10px;">
+                Invalid username or password
+            </p>
+        {% endif %}
+
+        <!-- Submit -->
+        <button type="submit" class="btn primary" style="width:100%;">
+            Login
+        </button>
+    </form>
+
+    <!-- Signup Link -->
+    <p style="margin-top: 15px; text-align:center;">
+        Don't have an account?
+        <a href="{% url 'signup' %}" style="color:#a855f7;">Sign up</a>
+    </p>
+
+</div>
+
+</body>
+</html>
