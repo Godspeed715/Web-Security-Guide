@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,24 +15,10 @@
         <div class="logo">
             <a href="/">Web Security Guide</a>
         </div>
-
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/owasp/{{video.page_no}}">OWASP</a></li>
             <li><a href="/videos/1">Videos</a></li>
-
-            {% if user.is_authenticated %}
-                <li><a href="#">👤 {{ user.username }}</a></li>
-                <li>
-                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button class="btn">Logout</button>
-                    </form>
-                </li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            {% endif %}
         </ul>
     </div>
 </nav>
@@ -41,7 +27,6 @@
 
     <h1 class="title">{{video.title}}</h1>
     <div class="video-grid">
-
         {% if video %}
             <div class="video-card">
                 <div class="video-wrapper">
@@ -52,31 +37,21 @@
         {% else %}
             <p>No videos available</p>
         {% endif %}
-
     </div>
 
-    <!-- Navigation -->
-
-        <nav class="nav-buttons">
+    <nav class="nav-buttons">
         {% if prev_id %}
-            <a href="{% url 'videos' prev_id %}" class="btn prev">
-                ← Previous
-            </a>
+            <a href="{% url 'videos' prev_id %}" class="btn prev">← Previous</a>
         {% endif %}
-
         {% if next_id %}
-            <a href="{% url 'videos' next_id %}" class="btn next">
-                Next →
-            </a>
+            <a href="{% url 'videos' next_id %}" class="btn next">Next →</a>
         {% endif %}
-        </nav>
+    </nav>
 
-        <!-- Footer -->
-        <footer>
-            <p>OWASP Top 10 2025 | Security Awareness Project</p>
-        </footer>
+    <footer>
+        <p>OWASP Top 10 2025 | Security Awareness Project</p>
+    </footer>
 
 </div>
-
 </body>
 </html>

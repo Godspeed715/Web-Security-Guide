@@ -1,4 +1,4 @@
-"""
+﻿"""
 URL configuration for web_security_guide project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,5 +22,5 @@ urlpatterns = [
     path('owasp/', include('articles.urls')),
     path('', include('home.urls')),
     path('videos/', include('videos.urls')),
-    path('accounts/', include('django.contrib.auth.urls')), #Urls for the login and logout views
+    # path('accounts/', include('django.contrib.auth.urls')), # --- AUTH (commented out) ---
 ]
