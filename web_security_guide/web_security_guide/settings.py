@@ -78,11 +78,19 @@ WSGI_APPLICATION = 'web_security_guide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# import dj_database_url
+# App no longer uses the database - all content is served from content.py.
+# A plain SQLite config is kept here so Django does not crash on startup.
+# import dj_database_url                                              # --- DATABASE (commented out) ---
+# DATABASES = {                                                       # --- DATABASE (commented out) ---
+#     'default': dj_database_url.config(default='sqlite:///db.sqlite3') # --- DATABASE (commented out) ---
+# }                                                                   # --- DATABASE (commented out) ---
 
-# DATABASES = {
-#     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
